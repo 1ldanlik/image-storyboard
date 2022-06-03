@@ -21,6 +21,7 @@ namespace IldanTestApp.Pages
     /// </summary>
     public partial class HomePage : Page
     {
+        int widthBoard;
         int widthMax = 1000;
         int heightMax = 1000;
         int widthMin = 20;
@@ -32,7 +33,7 @@ namespace IldanTestApp.Pages
         public HomePage()
         {
             InitializeComponent();
-            drawStoryboard(10, 10, 10, 10);
+            drawStoryboard(600, 10, 10, 10, 10);
         }
 
         public Image Img(string imgPath)
@@ -76,8 +77,8 @@ namespace IldanTestApp.Pages
             var c6 = CustomColumnDefinition();
             var c7 = CustomColumnDefinition();
 
-            Grid MyGrid = new Grid();
 
+            Grid MyGrid = new Grid();
             MyGrid.Width = Double.NaN;
             MyGrid.Height = Double.NaN;
             MainGrid.Children.Add(MyGrid);
@@ -90,8 +91,21 @@ namespace IldanTestApp.Pages
             MyGrid.Children.Add(img3);
             MyGrid.Children.Add(img5);
             MyGrid.Children.Add(grid1);
-            r1.Height = new GridLength(200);
-            r2.Height = new GridLength(100);
+            r1.Height = new GridLength(1, GridUnitType.Auto);
+            r2.Height = new GridLength(1, GridUnitType.Auto);
+            r3.Height = new GridLength(1, GridUnitType.Auto);
+            r4.Height = new GridLength(1, GridUnitType.Auto);
+            r5.Height = new GridLength(1, GridUnitType.Auto);
+            r6.Height = new GridLength(1, GridUnitType.Auto);
+            r7.Height = new GridLength(1, GridUnitType.Auto);
+
+            c1.Width = new GridLength(1, GridUnitType.Star);
+            c2.Width = new GridLength(1, GridUnitType.Star);
+            c3.Width = new GridLength(1, GridUnitType.Star);
+            c4.Width = new GridLength(1, GridUnitType.Star);
+            c5.Width = new GridLength(1, GridUnitType.Star);
+            c6.Width = new GridLength(1, GridUnitType.Star);
+            MyGrid.Width = widthBoard;
 
             grid1.RowDefinitions.Add(r2);
             grid1.RowDefinitions.Add(r3);
@@ -111,10 +125,10 @@ namespace IldanTestApp.Pages
             grid3.Children.Add(img2);
             grid3.Children.Add(img8);
 
-            r4.Height = new GridLength(100);
-            r3.Height = new GridLength(100);
-            r6.Height = new GridLength(50);
-            r7.Height = new GridLength(50);
+            //r4.Height = new GridLength(100);
+            //r3.Height = new GridLength(100);
+            //r6.Height = new GridLength(50);
+            //r7.Height = new GridLength(50);
 
             // Элементы MyGrid
             Grid.SetRow(img3, 0);
@@ -164,8 +178,9 @@ namespace IldanTestApp.Pages
             return rowDef;
         }
 
-        public void drawStoryboard(int top, int right, int bot, int left)
+        public void drawStoryboard(int width, int top, int right, int bot, int left)
         {
+            widthBoard = width;
             topPad = top;
             botPad = bot;
             leftPad = left;
@@ -178,7 +193,7 @@ namespace IldanTestApp.Pages
             if(NullCheck())
             {
                 MainGrid.Children.Clear();
-                drawStoryboard(int.Parse(TopTB.Text), int.Parse(RightTB.Text), int.Parse(BotTB.Text), int.Parse(LeftTB.Text));
+                drawStoryboard(int.Parse(WidthTB.Text), int.Parse(TopTB.Text), int.Parse(RightTB.Text), int.Parse(BotTB.Text), int.Parse(LeftTB.Text));
             }
             else
             {
@@ -191,7 +206,8 @@ namespace IldanTestApp.Pages
             bool result = !string.IsNullOrEmpty(TopTB.Text)
                 && !string.IsNullOrEmpty(RightTB.Text)
                 && !string.IsNullOrEmpty(BotTB.Text)
-                && !string.IsNullOrEmpty(LeftTB.Text);
+                && !string.IsNullOrEmpty(LeftTB.Text)
+                && !string.IsNullOrEmpty(WidthTB.Text);
             return result;
         }
 
@@ -259,6 +275,23 @@ namespace IldanTestApp.Pages
             {
                 LeftTB.Text = LeftTB.Text.Remove(LeftTB.Text.Length - 1);
                 LeftTB.SelectionStart = LeftTB.Text.Length;
+                MessageBox.Show("Можно вводить только цифры!");
+            }
+        }
+
+        private void WidthTB_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            try
+            {
+                if (Regex.IsMatch(WidthTB.Text, "[^0-9]"))
+                {
+                    throw new Exception();
+                }
+            }
+            catch
+            {
+                WidthTB.Text = WidthTB.Text.Remove(WidthTB.Text.Length - 1);
+                WidthTB.SelectionStart = WidthTB.Text.Length;
                 MessageBox.Show("Можно вводить только цифры!");
             }
         }

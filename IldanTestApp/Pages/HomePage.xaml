@@ -5,28 +5,46 @@
       xmlns:local="clr-namespace:IldanTestApp.Pages"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       Title="HomePage"
-      d:DesignHeight="450"
-      d:DesignWidth="800"
+      d:DesignHeight="800"
+      d:DesignWidth="1200"
       mc:Ignorable="d">
 
     <Grid>
         <StackPanel>
-            <Grid>
-                <Grid x:Name="MainGrid" HorizontalAlignment="Center" />
+            <Grid Height="500">
+                <Grid x:Name="MainGrid"
+                      HorizontalAlignment="Center" />
             </Grid>
-            <TextBlock Text="Top" HorizontalAlignment="Center"/>
-            <TextBox x:Name="TopTB" Width="100" TextChanged="TopTB_TextChanged"/>
-            <TextBlock Text="Right" HorizontalAlignment="Center"/>
-            <TextBox x:Name="RightTB" Width="100" TextChanged="RightTB_TextChanged"/>
-            <TextBlock Text="Bot" HorizontalAlignment="Center"/>
-            <TextBox x:Name="BotTB" Width="100" TextChanged="BotTB_TextChanged"/>
-            <TextBlock Text="Left" HorizontalAlignment="Center"/>
-            <TextBox x:Name="LeftTB" Width="100" TextChanged="LeftTB_TextChanged"/>
-            <Button Content="Обновить отступы"
-                    x:Name="UpdatePadBtn"
-                    Click="UpdatePadBtn_Click"
+            <TextBlock HorizontalAlignment="Center"
+                       Text="Width" />
+            <TextBox x:Name="WidthTB"
+                     Width="100"
+                     TextChanged="WidthTB_TextChanged" />
+            <TextBlock HorizontalAlignment="Center"
+                       Text="Top" />
+            <TextBox x:Name="TopTB"
+                     Width="100"
+                     TextChanged="TopTB_TextChanged" />
+            <TextBlock HorizontalAlignment="Center"
+                       Text="Right" />
+            <TextBox x:Name="RightTB"
+                     Width="100"
+                     TextChanged="RightTB_TextChanged" />
+            <TextBlock HorizontalAlignment="Center"
+                       Text="Bot" />
+            <TextBox x:Name="BotTB"
+                     Width="100"
+                     TextChanged="BotTB_TextChanged" />
+            <TextBlock HorizontalAlignment="Center"
+                       Text="Left" />
+            <TextBox x:Name="LeftTB"
+                     Width="100"
+                     TextChanged="LeftTB_TextChanged" />
+            <Button x:Name="UpdatePadBtn"
                     Width="150"
-                    Margin="0, 20"/>
+                    Margin="0,20"
+                    Click="UpdatePadBtn_Click"
+                    Content="Обновить отступы" />
         </StackPanel>
     </Grid>
 </Page>
