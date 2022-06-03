@@ -177,6 +177,7 @@ namespace IldanTestApp.Pages
         {
             if(NullCheck())
             {
+                MainGrid.Children.Clear();
                 drawStoryboard(int.Parse(TopTB.Text), int.Parse(RightTB.Text), int.Parse(BotTB.Text), int.Parse(LeftTB.Text));
             }
             else
