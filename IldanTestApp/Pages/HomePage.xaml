@@ -5,16 +5,20 @@
       xmlns:local="clr-namespace:IldanTestApp.Pages"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       Title="HomePage"
-      d:DesignHeight="800"
-      d:DesignWidth="1200"
       mc:Ignorable="d">
 
     <Grid>
         <StackPanel>
-            <Grid Height="500">
+            <Grid Height="auto">
                 <Grid x:Name="MainGrid"
                       HorizontalAlignment="Center" />
             </Grid>
+
+            <Button x:Name="UpdatePadBtn"
+                    Width="150"
+                    Margin="0,20"
+                    Click="UpdatePadBtn_Click"
+                    Content="Обновить отступы" />
             <TextBlock HorizontalAlignment="Center"
                        Text="Width" />
             <TextBox x:Name="WidthTB"
@@ -40,11 +44,6 @@
             <TextBox x:Name="LeftTB"
                      Width="100"
                      TextChanged="LeftTB_TextChanged" />
-            <Button x:Name="UpdatePadBtn"
-                    Width="150"
-                    Margin="0,20"
-                    Click="UpdatePadBtn_Click"
-                    Content="Обновить отступы" />
         </StackPanel>
     </Grid>
 </Page>

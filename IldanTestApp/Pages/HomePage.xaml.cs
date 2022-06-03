@@ -33,7 +33,7 @@ namespace IldanTestApp.Pages
         public HomePage()
         {
             InitializeComponent();
-            drawStoryboard(600, 10, 10, 10, 10);
+            drawStoryboard(1000, 0, 0, 0, 0);
         }
 
         public Image Img(string imgPath)
@@ -91,20 +91,23 @@ namespace IldanTestApp.Pages
             MyGrid.Children.Add(img3);
             MyGrid.Children.Add(img5);
             MyGrid.Children.Add(grid1);
-            r1.Height = new GridLength(1, GridUnitType.Auto);
-            r2.Height = new GridLength(1, GridUnitType.Auto);
-            r3.Height = new GridLength(1, GridUnitType.Auto);
-            r4.Height = new GridLength(1, GridUnitType.Auto);
-            r5.Height = new GridLength(1, GridUnitType.Auto);
-            r6.Height = new GridLength(1, GridUnitType.Auto);
-            r7.Height = new GridLength(1, GridUnitType.Auto);
+            r1.Height = new GridLength(widthBoard * 0.475);
+            //r1.Height = new GridLength(0.5, GridUnitType.Star);
+            r2.Height = new GridLength(1, GridUnitType.Star);
+            r3.Height = new GridLength(1, GridUnitType.Star);
+            r4.Height = new GridLength(1, GridUnitType.Star);
+            r5.Height = new GridLength(1, GridUnitType.Star);
+            r6.Height = new GridLength(1, GridUnitType.Star);
+            r7.Height = new GridLength(1, GridUnitType.Star);
 
-            c1.Width = new GridLength(1, GridUnitType.Star);
-            c2.Width = new GridLength(1, GridUnitType.Star);
-            c3.Width = new GridLength(1, GridUnitType.Star);
-            c4.Width = new GridLength(1, GridUnitType.Star);
-            c5.Width = new GridLength(1, GridUnitType.Star);
-            c6.Width = new GridLength(1, GridUnitType.Star);
+            c1.Width = new GridLength(1, GridUnitType.Auto);
+            c2.Width = new GridLength(1, GridUnitType.Auto);
+            c3.Width = new GridLength(1, GridUnitType.Auto);
+            c4.Width = new GridLength(1, GridUnitType.Auto);
+            c5.Width = new GridLength(1.5, GridUnitType.Auto);
+            c6.Width = new GridLength(1.5, GridUnitType.Auto);
+            c7.Width = new GridLength(1.5, GridUnitType.Auto);
+
             MyGrid.Width = widthBoard;
 
             grid1.RowDefinitions.Add(r2);
@@ -116,19 +119,15 @@ namespace IldanTestApp.Pages
             grid2.ColumnDefinitions.Add(c5);
             grid2.ColumnDefinitions.Add(c6);
             grid2.RowDefinitions.Add(r4);
-            grid2.RowDefinitions.Add(r5);
+
             grid2.Children.Add(grid3);
             grid2.Children.Add(img7);
 
+            grid3.ColumnDefinitions.Add(c7);
             grid3.RowDefinitions.Add(r6);
             grid3.RowDefinitions.Add(r7);
             grid3.Children.Add(img2);
             grid3.Children.Add(img8);
-
-            //r4.Height = new GridLength(100);
-            //r3.Height = new GridLength(100);
-            //r6.Height = new GridLength(50);
-            //r7.Height = new GridLength(50);
 
             // Элементы MyGrid
             Grid.SetRow(img3, 0);
