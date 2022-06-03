@@ -1,0 +1,32 @@
+﻿<Page x:Class="IldanTestApp.Pages.HomePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:local="clr-namespace:IldanTestApp.Pages"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      Title="HomePage"
+      d:DesignHeight="450"
+      d:DesignWidth="800"
+      mc:Ignorable="d">
+
+    <Grid>
+        <StackPanel>
+            <Grid>
+                <Grid x:Name="MainGrid" HorizontalAlignment="Center" />
+            </Grid>
+            <TextBlock Text="Top" HorizontalAlignment="Center"/>
+            <TextBox x:Name="TopTB" Width="100" TextChanged="TopTB_TextChanged"/>
+            <TextBlock Text="Right" HorizontalAlignment="Center"/>
+            <TextBox x:Name="RightTB" Width="100" TextChanged="RightTB_TextChanged"/>
+            <TextBlock Text="Bot" HorizontalAlignment="Center"/>
+            <TextBox x:Name="BotTB" Width="100" TextChanged="BotTB_TextChanged"/>
+            <TextBlock Text="Left" HorizontalAlignment="Center"/>
+            <TextBox x:Name="LeftTB" Width="100" TextChanged="LeftTB_TextChanged"/>
+            <Button Content="Обновить отступы"
+                    x:Name="UpdatePadBtn"
+                    Click="UpdatePadBtn_Click"
+                    Width="150"
+                    Margin="0, 20"/>
+        </StackPanel>
+    </Grid>
+</Page>
